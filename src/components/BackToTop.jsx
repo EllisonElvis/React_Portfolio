@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./BackToTop.css";
 
 const BackToTop = () => {
   const [show, setShow] = useState(false);
