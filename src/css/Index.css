@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import url('../assets/servicepic.jpg');
+
 
 * {
     margin: 0;
@@ -9,16 +11,40 @@
 .header {
     position: fixed;
     top: 0;
+    left: 0;
+
     width: 100%;
-    padding: 10px 100px;
+
+    padding: 15px 50px;
+
     background: transparent;
     transition: 0.5s ease;
+
     color: white;
+
     z-index: 1000;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    z-index: 1001;
+    margin-left: auto;
+}
+
+/* MOBILE */
+
+
+
 
 /* When scrolling */
 .header.scrolled {
@@ -32,10 +58,33 @@
     font-size: 24px;
 }
 
+
+
 .header__nav {
     list-style: none;
     display: flex;
     gap: 20px;
+}
+
+.head_socials {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.head_socials a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    border-radius: 50%;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.712);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .appsection {
@@ -204,29 +253,23 @@
 .services2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
-
 }
 
 .servicepic {
-    position: relative;
-    background-color: rgba(244, 250, 255, 0.712);
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    background-image: url('../assets/servicepic.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+
 }
 
-.servicepic img {
+.servicepicfade {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: 0.5s ease;
+    background: rgba(0, 0, 0, 0.571);
 }
 
-.servicepic:hover img {
-    transform: scale(1.1);
-}
 
 .servicecontent {
     display: flex;
@@ -271,6 +314,7 @@
 .content4 {
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
 }
 
 .services3div1 h1 {
@@ -291,14 +335,14 @@
     gap: 20px;
     align-items: center;
     justify-content: center;
-    padding: 100px 40px;
+    padding: 100px 40px 40px 40px;
 }
 
 .services3div2 {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    padding: 100px;
+    padding: 0px 40px;
 }
 
 .services3div2 div div {
@@ -347,7 +391,7 @@
     background: rgba(0, 0, 0, 0.877);
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
     /* Hidden by default */
@@ -414,104 +458,114 @@
 }
 
 form {
-margin: 50px 100px;
+    margin: 50px 100px;
 }
 
 .input-group {
-  position: relative;
-  margin-bottom: 20px;
-  /* width: 100%; */
+    position: relative;
+    margin-bottom: 20px;
+    /* width: 100%; */
 }
 
 .input-group input {
-  width: 100%;
-  padding: 12px 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  outline: none;
-  font-size: 12px;
-  background: white;
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    font-size: 12px;
+    background: white;
 }
 
 .input-group label {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  background: white;
-  padding: 0 5px;
-  color: #888;
-  pointer-events: none;
-  transition: 0.25s ease;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: white;
+    padding: 0 5px;
+    color: #888;
+    pointer-events: none;
+    transition: 0.25s ease;
 }
 
 /* floating effect */
-.input-group input:focus + label,
-.input-group input:not(:placeholder-shown) + label {
-  top: 1px;
-  left: 10px;
-  font-size: 10px;
-  color: #000;
-  background: none;
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+    top: 1px;
+    left: 10px;
+    font-size: 10px;
+    color: #3809f2;
+    font-weight: 500;
+
+    background: none;
+}
+
+.input-group input:focus {
+    border-color: #3809f2;
 }
 
 /* textarea */
 .input-group textarea {
-  width: 100%;
-  padding: 12px 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  outline: none;
-  font-size: 12px;
-  font-family: inherit;
-  resize:vertical;
-  min-height: 200px;
-  background: white;
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    font-size: 12px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 200px;
+    background: white;
 }
 
 /* label works for textarea too */
-.input-group textarea + label {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  background: white;
-  padding: 0 5px;
-  color: #888;
-  pointer-events: none;
-  transition: 0.25s ease;
+.input-group textarea+label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: white;
+    padding: 0 5px;
+    color: #888;
+    pointer-events: none;
+    transition: 0.2s ease;
 }
 
 /* floating effect */
-.input-group textarea:focus + label,
-.input-group textarea:not(:placeholder-shown) + label {
-  top: 1px;
-  font-size: 12px;
-  color: #000;
-  background: none;
+.input-group textarea:focus+label,
+.input-group textarea:not(:placeholder-shown)+label {
+    top: 1px;
+    font-size: 12px;
+    color: #3809f2;
+    background: none;
+    font-weight: 500;
+}
+
+.input-group textarea:focus {
+    border-color: #3809f2;
 }
 
 .error {
-  color: red;
-  font-size: 12px;
-  margin-top: -10px;
-  margin-bottom: 10px;
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
 button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.contact{
+.contact {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 100px 40px;
-    
-    width: 100%;
-        background-color: rgba(244, 250, 255, 0.712)
 
+    width: 100%;
+    background-color: rgba(244, 250, 255, 0.712)
 }
 
 /* .contactdiv2 {
@@ -540,33 +594,34 @@ button {
 /* backtotop button */
 
 .top-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
 
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
 
-  background: black;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 9999;
+    background: black;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 9999;
 
-  /* hidden state */
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
+    /* hidden state */
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
 
-  transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .top-btn.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .contact h1 {
@@ -575,11 +630,225 @@ button {
     font-weight: 600;
 }
 
-.contactdiv1{
+.contactdiv1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.877);
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    min-height: 100px;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    transition: 0.3s ease;
+    border-radius: 50%;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.712);
+}
+
+.footer p {
+    color: #ffffff97;
+    font-size: 12px;
+}
+
+.socials a:hover {
+    transform: translateY(-3px);
+}
+
+
+
+/* Media queries */
+/* Laptop */
+
+
+
+/* Tablet */
+   @media (max-width: 768px) {
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1002;
+
+    }
+
+    .header__title {
+        font-size: 1.5rem;
+        z-index: 1002;
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+
+        width: 280px;
+        height: 100vh;
+
+        background: #111;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 2rem;
+
+        padding: 100px 30px;
+
+        transition: .4s ease;
+
+        z-index: 1001;
+    }
+
+    .header__nav.active {
+        right: 0;
+    }
+
+    .head_socials {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .hero-content {
+        text-align: center;
+        align-items: center;
+        padding: 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .servicecards {
+        grid-template-columns: 1fr;
+    }
+
+    .services2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .servicepic {
+        height: 400px;
+    }
+}
+/* Mobile */
+@media (max-width: 480px) {
+
+    .header{
+        padding: 10px 20px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+        color: #fff;
+
+    }
+
+    .about {
+     padding: 50px 20px;
+    }
+
+    .services1 {
+        padding: 50px 20px;
+    }
+
+        .servicecontent {
+            padding: 50px 20px;
+        }
+
+        .services3div2 {
+            padding: 50px 20px;
+        }
+    
+        form {
+            margin: 50px 20px;
+        }
+
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+
+    .hero-content {
+        padding: 10px;
+    }
+
+
+
+    .hero-content h1 {
+        font-size: 30px;
+        color: #fff;
+
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .header__title {
+        font-size: 1.5rem;
+    }
+
+    .header__nav {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
+
+
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
 }

@@ -1,13 +1,31 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import '../css/Index.css'
+import emailjs from '@emailjs/browser';
 
 const Form = () => {
   const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const onSubmit = data =>
-    alert(`Welcome, ${data.name}! Your email has been submitted successfully. Thank you for reaching out!`)
-
+ const onSubmit = (data) => {
+  emailjs
+    .send(
+      'service_4uprhfe',
+      'template_byitp3i',
+      {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+      },
+      'lfrDKBvw1T7CeBsAY'
+    )
+    .then(() => {
+      alert('Message sent successfully!');
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Failed to send message.');
+    });
+};
   return (
     <div className='formpage'>
 

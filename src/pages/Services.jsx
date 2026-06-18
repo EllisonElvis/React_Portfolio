@@ -1,5 +1,4 @@
 import React from 'react'
-import servicepic from '../../src/assets/servicepic.jpg'
 import bootstrap from '../../src/assets/bootstrap.png'
 import css from '../../src/assets/css.png'
 import illustrator from '../../src/assets/illustrator.png'
@@ -42,7 +41,9 @@ const Services = () => {
 
             <section className='services2'>
                 <div className='servicepic'>
-                    <img src={servicepic} alt="" />
+                    <div className='servicepicfade'>
+
+                    </div>
                 </div>
 
                 <div className='servicecontent'>

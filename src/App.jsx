@@ -1,37 +1,23 @@
 import React from 'react'
 import Header from './components/Header'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Services from './pages/Services'
-import Form from './pages/Form'
 import { Routes, Route } from 'react-router-dom'
-import '../src/css/Index.css'
 import BackToTop from './components/BackToTop'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
 
 function App() {
   return (
     <>
-      
-      
-      <section className='appsection' id='home'>
-        <Header />
-      </section>
 
-      <section className='appsection' id='about'>
-        <About />
-      </section>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/projects' element={<Projects />} />
+      </Routes>
 
-      <section className='appsection' id='services'>
-        <Services />
-      </section>
-
-
-      <section className='appsection' id='contact'>
-        <Contact />
-      </section>
 
       <BackToTop />
-
+      <Footer />
 
     </>
   )
@@ -39,10 +25,4 @@ function App() {
 
 export default App
 
-      // <Routes>
-      //   <Route path='/' element={<Home />} />
-      //   <Route path='/about' element={<About />} />
-      //   <Route path='/projects' element={<Projects />} />
-      //   <Route path='/skills' element={<Skills />} />
-      //   <Route path='/contact' element={<Contact />} />
-      // </Routes>
+

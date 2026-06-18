@@ -18,7 +18,7 @@ const BackToTop = () => {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={`top-btn ${show ? "show" : ""}`}
     >
-      ↑
+      <i class="ri-arrow-up-s-line"></i>
     </button>
   );
 };
